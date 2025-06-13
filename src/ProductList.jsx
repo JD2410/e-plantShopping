@@ -257,6 +257,7 @@ function ProductList({ onHomeClick }) {
 
     const [addedToCart, setAddedToCart] = useState({});
     const dispatch = useDispatch()
+    
     const handleAddToCart = (plant) => {
         setAddedToCart((prevState) => ({ 
             ...prevState,
@@ -296,9 +297,13 @@ function ProductList({ onHomeClick }) {
                                         <img src={plant.image} alt="" className='product-image' />
                                         <div className='product-title'>{plant.name}</div>
                                         <div>{plant.description}</div>
-                                        <div className='product-price'>{plant.cost}</div>
-                                        <button className='product-button'
-                                        onClick={() => handleAddToCart(plant)}>Add to Cart</button>
+                                        <div className='product-price' >{plant.cost}</div>
+                                        <button className={addedToCart[plant.name] ? "product-button added-to-cart" : "product-button"}
+                                        disabled={addedToCart[plant.name] ? true : false}
+                                        
+                                        onClick={() => handleAddToCart(plant)}
+                                        
+                                        >{addedToCart[plant.name] ? "Added to Cart" : "Add to Cart"}</button>
                                     </div>
                                 ))}
                             </div>
