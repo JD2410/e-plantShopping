@@ -257,7 +257,7 @@ function ProductList({ onHomeClick }) {
 
     const [addedToCart, setAddedToCart] = useState({});
     const dispatch = useDispatch()
-    const handleAddToCart = plant => {
+    const handleAddToCart = (plant) => {
         setAddedToCart((prevState) => ({ 
             ...prevState,
             [plant.name]: true
